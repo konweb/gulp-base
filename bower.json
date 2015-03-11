@@ -1,0 +1,21 @@
+{
+  "name": "gulp-base",
+  "version": "0.0.0",
+  "homepage": "https://github.com/konweb/gulp-base",
+  "authors": [
+    "mb_kondou <kondou@maboroshi.biz>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "jquery": "~2.1.3",
+    "backbone": "~1.1.2",
+    "underscore": "~1.8.2"
+  }
+}

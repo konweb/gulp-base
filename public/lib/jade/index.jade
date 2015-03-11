@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+html(lang="en")
+head
+	meta(charset="UTF-8")
+	title sample template
+body
+	h1 jade template
+	.l-header
+		.list
+			- for (var i = 0; i < 5; ++i)
+				li
+					a(href="#") list- #{i+1}
+
+	.l-section
+		p
+			| Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate ex quisquam adipisci ea voluptas voluptatum mollitia temporibus magni laboriosam illum omnis neque numquam amet, ad recusandae placeat aliquid. Provident, quidem.
+
+	script(src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js")
+	script(src="js/app.js")

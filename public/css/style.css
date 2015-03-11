@@ -1,0 +1,36 @@
+body {
+  background: #fff;
+  font-size: 15px;
+}
+
+.l-header {
+  font-size: 1em;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 5px;
+  box-shadow: 0 0 3px #ccc;
+}
+.l-header .list {
+  list-style: none;
+  box-sizing: border-box;
+  padding: 5px;
+}
+.l-header .list a {
+  text-decoration: none;
+}
+.l-header .list a.is-active {
+  color: red;
+}
+@media screen and (max-width: 320px) {
+
+  body {
+    background: #ccc;
+  }
+
+  .l-header .list {
+    background: #ccc;
+    padding: 2px;
+  }
+}
