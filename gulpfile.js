@@ -84,7 +84,7 @@ gulp.task('scripts', function() {
 
 
 // Browser Sync
-gulp.task('browser-sync', function() {
+gulp.task('bs', function() {
 	browserSync({
 		server: {
 			baseDir: root,
@@ -108,7 +108,7 @@ gulp.task("start", ['watch']);
 
 // gulpfile save restart
 var spawn = require('child_process').spawn;
-gulp.task('default', function() {
+gulp.task('default', ['bs'], function() {
 	var process;
 	function restart() {
 		if (process) process.kill();
