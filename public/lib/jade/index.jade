@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-html(lang="en")
-head
-	meta(charset="UTF-8")
-	title sample template
-body
+extends ./inc/_head.jade
+
+block title
+	title index page
+
+block content
 	h1 jade template
 	.l-header
-		.list
-			- for (var i = 0; i < 5; ++i)
-				li
-					a(href="#") list- #{i+1}
+		include ./inc/_list.jade
 
 	.l-section
 		p

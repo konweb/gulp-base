@@ -6,7 +6,8 @@ var gulp        = require('gulp'),
 			lib: {
 				sass: root + 'lib/sass/',
 				js: root + 'lib/js/',
-				template: root + 'lib/jade/'
+				template: root + 'lib/jade/',
+				components: root + 'lib/components/'
 			},
 			dist: {
 				css: root + 'css/',
@@ -21,10 +22,11 @@ gulp.task('watch', function(){
 	var gaze_opt = {
 		debounceDelay: 1000 // wait after the last run
 	};
-	gulp.watch([dir.lib.template + '/*.jade'], gaze_opt, ['jade']);
-	gulp.watch([dir.lib.sass + '/*.+(scss|sass)'], gaze_opt, ['sass']);
+	gulp.watch([dir.lib.template + '/**/*.jade'], gaze_opt, ['jade']);
+	gulp.watch([root + "**/*.html"], gaze_opt, ['bs-reload']);
+	gulp.watch([dir.lib.sass + '/**/*.+(scss|sass)'], gaze_opt, ['sass']);
 	gulp.watch([dir.dist.css + '/*.css'], gaze_opt, ['css']);
-	gulp.watch([dir.lib.js + '/*.js'], gaze_opt, ['scripts']);
+	gulp.watch([dir.lib.js + '/**/*.js'], gaze_opt, ['scripts']);
 });
 
 
@@ -57,22 +59,21 @@ gulp.task('css', function(){
 
 // jade compile
 gulp.task('jade', function(){
-	return gulp.src(dir.lib.template + '*.jade')
+	return gulp.src(['!' + dir.lib.template + 'inc/*.jade', dir.lib.template + '*.jade'])
 		.pipe($.plumber())
 		.pipe($.jade({
 			pretty: true
 		}))
-		.pipe(gulp.dest(dir.dist.template))
-		.pipe(browserSync.reload({stream: true}));
+		.pipe(gulp.dest(dir.dist.template));
 });
 
 
 // javascript concat & uglify
 gulp.task('scripts', function() {
 	gulp.src([
-			root + 'lib/components/jquery/dist/jquery.min.js',
-			root + 'lib/components/underscore/underscore-min.js',
-			root + 'lib/components/backbone/backbone.js',
+			dir.lib.components + 'jquery/dist/jquery.min.js',
+			dir.lib.components + 'underscore/underscore-min.js',
+			dir.lib.components + 'backbone/backbone.js',
 			root + 'lib/js/**/*.js'
 		])
 		.pipe($.plumber())
@@ -86,6 +87,7 @@ gulp.task('scripts', function() {
 // Browser Sync
 gulp.task('bs', function() {
 	browserSync({
+		open: false,
 		server: {
 			baseDir: root,
 		},
@@ -102,13 +104,19 @@ gulp.task('bs', function() {
 });
 
 
+// Browser Sync reload
+gulp.task('bs-reload', function () {
+	browserSync.reload();
+});
+
+
 // defaults task
-gulp.task("start", ['watch']);
+gulp.task("start", ['watch', 'bs']);
 
 
 // gulpfile save restart
 var spawn = require('child_process').spawn;
-gulp.task('default', ['bs'], function() {
+gulp.task('default', function() {
 	var process;
 	function restart() {
 		if (process) process.kill();
