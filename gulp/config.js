@@ -1,13 +1,13 @@
-var root = './public/';
+var root = './';
 module.exports = {
 	root: root,
 	css: {
-		src: root + 'lib/sass/',
-		dest: root + 'css/'
+		src: root + 'source/sass/',
+		dest: root + 'build/css/'
 	},
 	js: {
-		src:       root + 'lib/js/',
-		dest:      root + 'js/',
+		src:       root + 'source/js/',
+		dest:      root + 'build/js/',
 		bundle:    'bundle.js',
 		browserify: {
 			debug:     true,
@@ -15,8 +15,8 @@ module.exports = {
 		}
 	},
 	jade: {
-		src: root + 'lib/jade/',
-		dest: root
+		src: root + 'source/jade/',
+		dest: root + 'build/'
 	},
 	build: {
 		depends: [ 'js', 'css' ]
