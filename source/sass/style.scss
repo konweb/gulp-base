@@ -11,6 +11,7 @@ $colorT: #ccc;
 body{
 	background: #fff;
 	font-size: 15px;
+	margin: 30px;
 	@include media(320px){
 		background: #ccc;
 	}

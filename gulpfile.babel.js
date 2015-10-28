@@ -13,6 +13,6 @@ gulp.task('default', function() {
 		if (process) process.kill();
 		process = spawn('gulp', ['start'], {stdio: 'inherit'});
 	}
-	gulp.watch('gulpfile.js', restart);
+	gulp.watch('gulpfile.babel.js', restart);
 	restart();
 });

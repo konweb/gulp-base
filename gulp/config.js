@@ -1,22 +1,32 @@
-var root = './';
+/**
+ * config.js
+ * - ディレクトリ構造
+ */
+
+const ROOT       =     './';
+const SRC_ROOT   = ROOT + 'source';
+const BUILD_ROOT = ROOT + 'build';
+
 module.exports = {
-	root: root,
-	css: {
-		src: root + 'source/sass/',
-		dest: root + 'build/css/'
+	root       : ROOT,
+	src_root   : SRC_ROOT,
+	build_root : BUILD_ROOT,
+	css : {
+		src  : SRC_ROOT + '/sass/',
+		dest : BUILD_ROOT + '/css/'
 	},
 	js: {
-		src:       root + 'source/js/',
-		dest:      root + 'build/js/',
-		bundle:    'bundle.js',
-		browserify: {
-			debug:     true,
-			transform: [ 'reactify', 'debowerify' ]
+		src        : SRC_ROOT + '/js/',
+		dest       : BUILD_ROOT + '/js/',
+		bundle     : 'bundle.js',
+		browserify : {
+			debug     : true,
+			transform : [ 'reactify', 'debowerify' ]
 		}
 	},
 	jade: {
-		src: root + 'source/jade/',
-		dest: root + 'build/'
+		src  : SRC_ROOT + '/jade/',
+		dest : BUILD_ROOT + '/'
 	},
 	build: {
 		depends: [ 'js', 'css' ]

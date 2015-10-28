@@ -4,9 +4,9 @@ var browserSync = require( 'browser-sync' );
 
 gulp.task('bs', function() {
 	browserSync({
-		open: false,
+		open: true,
 		server: {
-			baseDir: config.root
+			baseDir: config.build_root
 		},
 		watchOptions: {
 			debounceDelay: 1000
