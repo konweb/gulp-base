@@ -1,0 +1,24 @@
+extends ./inc/_head.jade
+
+block title
+	title index page
+
+block content
+	h1 jade template
+	.l-header
+		include ./inc/_list.jade
+
+	.l-section
+		p
+			| Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate ex quisquam adipisci ea voluptas voluptatum mollitia temporibus magni laboriosam illum omnis neque numquam amet, ad recusandae placeat aliquid. Provident, quidem.
+
+	.l-section
+		p
+			| Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate ex quisquam adipisci ea voluptas voluptatum mollitia temporibus magni laboriosam illum omnis neque numquam amet, ad recusandae placeat aliquid. Provident, quidem.
+
+	.l-section
+		p
+			| alarm
+		i.glyphicon.glyphicon-alarm
+
+	script(src="js/app.js")
