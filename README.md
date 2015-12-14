@@ -9,6 +9,8 @@ npm install
 ```
 npm start
 ```
+- Start BrowserSync
+- Start Watch files
 - Compile Sass
 - Compile Jade
 - spritesmith
